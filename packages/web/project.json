@@ -1,0 +1,25 @@
+{
+  "name": "web",
+  "sourceRoot": "packages/web/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "options": {
+        "configFile": "packages/web/rollup.config.js",
+        "tsConfig": "packages/web/tsconfig.json",
+        "main": "packages/web/src/index.tsx",
+        "outputPath": "packages/web/dist"
+      }
+    },
+    "start": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "storybook dev -p 6006"
+      }
+    }
+  },
+  "scripts": {
+    "build": "rollup -c"
+  }
+}
